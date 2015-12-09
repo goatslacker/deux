@@ -1,0 +1,11 @@
+{
+  "name": "deux",
+  "version": "0.1.0",
+  "description": "Redux things",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Josh Perez <josh@goatslacker.com>",
+  "license": "MIT"
+}
