@@ -1,5 +1,4 @@
-import { createStore } from 'redux'
-import { dispatchableActions, createReducer, createActions, Reducer } from './src'
+import { bindActionCreators, createReducer, createActions, createStore, Reducer } from './src'
 
 //const incrementReducer = (state = 0, dispatch = {}) => {
 //  if (dispatch.type === 'counter/increment') {
@@ -35,15 +34,25 @@ class IncrementReducer extends Reducer {
   }
 
   increment(payload) {
-    this.setState(this.state + payload)
+    this.replaceState(this.state + payload)
   }
 }
 
-const incrementReducer = createReducer(new IncrementReducer())
+//const incrementReducer = createReducer(new IncrementReducer())
+
+const incrementReducer = createReducer({
+  state: 0,
+
+  reducers: {
+    [counter.increment.type](state, payload) {
+      return state + payload
+    },
+  },
+})
 
 const store = createStore(incrementReducer)
 
-const dispatchCounter = dispatchableActions(store.dispatch, counter)
+const dispatchCounter = bindActionCreators(counter, store.dispatch)
 
 store.subscribe(() => console.log(store.getState()))
 

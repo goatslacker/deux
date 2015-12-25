@@ -1,5 +1,3 @@
-import isPlainObject from 'lodash.isplainobject'
-
 export default class Reducer {
   bindListeners(listeners) {
     // store all of the handlers
@@ -15,7 +13,7 @@ export default class Reducer {
       actions.forEach((actionType) => {
         const actionName = typeof actionType === 'string'
           ? actionType
-          : actionType.id
+          : actionType.type
 
         if (!actionName) {
           throw new ReferenceError('Unknown action')
@@ -41,9 +39,7 @@ export default class Reducer {
   }
 
   setState(nextState) {
-    this.state = isPlainObject(nextState)
-      ? Object.assign({}, this.state, nextState)
-      : nextState
+    this.state = Object.assign({}, this.state, nextState)
   }
 
   replaceState(nextState) {

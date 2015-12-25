@@ -5,7 +5,7 @@ export default (namespace, actions) => {
       type: key,
       payload: x,
     })
-    obj[action].id = key
+    obj[action].type = key
     return obj
   }, {})
 }

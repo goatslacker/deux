@@ -7,5 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Josh Perez <josh@goatslacker.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "babel-cli": "6.3.17",
+    "babel-preset-airbnb": "1.0.1",
+    "redux": "3.0.5"
+  }
 }

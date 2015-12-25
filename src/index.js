@@ -1,4 +1,34 @@
-export createReducer from './createReducer'
-export Reducer from './Reducer'
-export createActions from './createActions'
-export dispatchableActions from './dispatchableActions'
+import {
+  applyMiddleware,
+  bindActionCreators,
+  combineReducers,
+  compose,
+  createStore,
+} from 'redux'
+import createReducer from './createReducer'
+import Reducer from './Reducer'
+import createActions from './createActions'
+
+export { applyMiddleware }
+export { bindActionCreators }
+export { combineReducers }
+export { compose }
+export { createActions }
+export { createReducer }
+export { createStore }
+export { Reducer }
+
+export default () => {
+  const reducers = {}
+
+  return {
+    addReducer(name, reducer) {
+      reducers[name] = createReducer(reducer)
+      return reducer
+    },
+
+    createStore() {
+      return createStore(combineReducers(reducers))
+    },
+  }
+}
