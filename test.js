@@ -34,21 +34,22 @@ class IncrementReducer extends Reducer {
   }
 
   increment(payload) {
-    this.replaceState(this.state + payload)
+//    this.replaceState(this.state + payload)
+    return this.state + payload
   }
 }
 
-//const incrementReducer = createReducer(new IncrementReducer())
+const incrementReducer = createReducer(new IncrementReducer())
 
-const incrementReducer = createReducer({
-  state: 0,
-
-  reducers: {
-    [counter.increment.type](state, payload) {
-      return state + payload
-    },
-  },
-})
+//const incrementReducer = createReducer({
+//  state: 0,
+//
+//  reducers: {
+//    [counter.increment.type](state, payload) {
+//      return state + payload
+//    },
+//  },
+//})
 
 const store = createStore(incrementReducer)
 

@@ -26,9 +26,10 @@ export default class Reducer {
         // iterate over all of our handlers and return the next state
         if (!reducers[actionName]) {
           reducers[actionName] = (state, payload) => {
-            actionHandlers[actionName].forEach(
-              handler => handler(payload)
-            )
+            actionHandlers[actionName].forEach((handler) => {
+              const nextState = handler(payload)
+              if (nextState !== undefined) this.replaceState(nextState)
+            })
             return this.state
           }
         }
