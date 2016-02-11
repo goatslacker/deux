@@ -4,7 +4,8 @@
   "description": "Redux things",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src -d lib",
+    "test": "babel-node ./node_modules/mocha/bin/_mocha -u exports -R spec test/*-test.js"
   },
   "author": "Josh Perez <josh@goatslacker.com>",
   "license": "MIT",
@@ -12,5 +13,11 @@
     "babel-cli": "6.3.17",
     "babel-preset-airbnb": "1.0.1",
     "redux": "3.0.5"
+  },
+  "devDependencies": {
+    "babel-preset-stage-0": "6.5.0",
+    "chai": "3.5.0",
+    "mocha": "2.4.5",
+    "sinon": "1.17.3"
   }
 }
