@@ -26,4 +26,16 @@ export const end2end = {
 
     assert(reducer() === 6, 'count was incremented three more times')
   },
+
+  'actions as objects'() {
+    const reducer = createReducer(IncrementReducerDefinition)
+
+    const store = createStore(reducer)
+
+    assert(counter.twentyfive().payload === 25, 'the payload returned is correct')
+
+    store.dispatch(counter.twentyfive())
+
+    assert(reducer() === 25, 'the state was set to 25')
+  },
 }
