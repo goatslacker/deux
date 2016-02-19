@@ -2,7 +2,7 @@
   "name": "deux",
   "version": "0.1.0",
   "description": "Redux things",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "babel src -d lib",
     "test": "babel-node ./node_modules/mocha/bin/_mocha -u exports -R spec test/*-test.js"
@@ -12,7 +12,7 @@
   "dependencies": {
     "babel-cli": "6.3.17",
     "babel-preset-airbnb": "1.0.1",
-    "redux": "3.0.5"
+    "redux": "3.3.1"
   },
   "devDependencies": {
     "babel-preset-stage-0": "6.5.0",
